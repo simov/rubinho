@@ -1,0 +1,30 @@
+<article class="gem">
+    <header>
+        <h2><a href="{{project_uri}}" target="_blank">{{name}}</a></h2>
+        <p>{{info}}</p>
+        <code>
+            gem install {{name}}
+        </code>
+    </header>
+    <ul>
+        {{#owners}}
+        <li class="owners"><strong>Owners:</strong>{{{owners}}}</li>
+        {{/owners}}
+        <li><strong>Downloads:</strong> <em>{{downloads}}</em></li>
+        <li><strong>Authors:</strong> <em>{{authors}}</em></li>
+        <li><strong>Version:</strong> <em>{{version}}</em></li>
+        <li><strong>Licenses:</strong> {{#licenses}}<em>{{.}}</em> {{/licenses}}</li>
+        <li>
+            <strong>Resources:</strong>
+            {{#gem_uri}}<a href="{{gem_uri}}" target="_blank"><em>gem</em></a>{{/gem_uri}}
+
+            {{#source_code_uri}}
+             | <a href="{{source_code_uri}}" target="_blank"><em>source</em></a>
+            {{/source_code_uri}}
+            
+            {{#documentation_uri}}
+             | <a href="{{documentation_uri}}" target="_blank"><em>docs</em></a>
+            {{/documentation_uri}}
+        </li>
+    </ul>
+</article>

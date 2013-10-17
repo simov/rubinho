@@ -1,0 +1,34 @@
+{
+    "name": "rubinho",
+    "version": "0.0.1",
+    "description": "RubyGems visualization tool",
+    "keywords": [
+        "ruby",
+        "gems",
+        "visualization",
+        "graph",
+        "vivagraph"
+    ],
+    "license"   : "MIT",
+    "homepage"  : "https://github.com/simov/rubinho",
+    "author": {
+        "name"  : "simo",
+        "email" : "simeonvelichkov@gmail.com"
+    },
+    "repository": {
+        "type"  : "git",
+        "url"   : "git://github.com/simov/rubinho.git"
+    },
+    "dependencies": {
+        "ws"         : "*",
+        "async"      : "*",
+        "express"    : "*",
+        "consolidate": "*",
+        "hogan.js"   : "*"
+    },
+    "main": "./app",
+    "engines": {
+        "node": "0.10.x",
+        "npm": "1.2.x"
+    }
+}
