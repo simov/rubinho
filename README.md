@@ -1,6 +1,6 @@
-#Rubinho
+#[Rubinho][7]
 
-![Rubinho][1]
+[![Rubinho][1]][7]
 
 Rubinho is a [RubyGems][2] visualization tool. Here is the [NPM][3] counterpart. The visualization is possible thanks to [VivaGraphJS][4]. Also check out [yasiv][5] for more inspiration.
 
@@ -14,3 +14,4 @@ Please **do not** remove the copyright statement from the bottom of the site. Th
   [4]: https://github.com/anvaka/VivaGraphJS
   [5]: http://www.yasiv.com/
   [6]: http://loadinggif.com/
+  [7]: http://rubinho.herokuapp.com/
