@@ -23,9 +23,9 @@ code { display: block; border: 1px solid #ccc; border-radius: 5px; padding: 10px
 .gem header h2 { padding-bottom: 15px; }
 .gem ul li { padding-bottom: 5px; }
 
-.owners p { margin: 10px 0 10px 1px; }
-.owners a { display: inline-block; margin: 0 9px 0 0; }
-.owners img { display: block; border-radius: 5px; }
+.gem__owners { margin: 10px 0 10px 1px; }
+.gem__owners a { display: inline-block; margin: 0 9px 0 0; }
+.gem__owners img { display: block; border-radius: 5px; }
 
 footer { position: fixed; bottom: 10px; left: 20px; z-index: 100; }
 

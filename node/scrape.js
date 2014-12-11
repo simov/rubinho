@@ -1,18 +1,20 @@
 
+var cheerio = require('cheerio');
 var rb = require('./rubygems');
 
 
 function owners (path, cb) {
     rb.scrape(path, function (err, res) {
         if (err) return cb(err);
-        try {
-            var owners = res.raw.match(/<h5>Owners<\/h5>[^<]*(<p>.*<\/p>)/)[1];
-        } catch (e) {
-            var error = new Error('No owners found');
-        }
-        cb(error, owners
-            .replace(/(<a[^>]+)/g, '$1 target="_blank"')
-            .replace(/href="([^"]+)"/g, 'href="http://rubygems.org$1"'));
+        var $ = cheerio.load(res.raw);
+
+        $('.gem__owners a').each(function (index) {
+            $(this).attr('target', '_blank');
+            var path = $(this).attr('href');
+            $(this).attr('href', 'http://rubygems.org'+path);
+        });
+
+        cb(null, $('<div>').append($('.gem__owners')).html());
     });
 }
 

@@ -1,6 +1,7 @@
 {
     "name": "rubinho",
-    "version": "0.0.1",
+    "version": "0.0.2",
+    "private": true,
     "description": "RubyGems visualization tool",
     "keywords": [
         "ruby",
@@ -20,11 +21,13 @@
         "url"   : "git://github.com/simov/rubinho.git"
     },
     "dependencies": {
-        "ws"         : "*",
-        "async"      : "*",
-        "express"    : "*",
-        "consolidate": "*",
-        "hogan.js"   : "*"
+        "ws"         : "0.4.31",
+        "async"      : "0.9.0",
+        "purest"     : "1.0.0",
+        "express"    : "3.4.4",
+        "consolidate": "0.9.1",
+        "hogan.js"   : "3.0.2",
+        "cheerio"    : "0.12.3"
     },
     "main": "./app",
     "engines": {
