@@ -143,9 +143,9 @@ RubyGems.prototype.scrape = function (api, params, cb) {
         cb = params;
         params = {};
     }
-    http.request({
+    https.request({
         hostname: 'rubygems.org',
-        port: 80,
+        port: 443,
         path: '/'+api,
         method: 'GET'
     }, function (res) {
