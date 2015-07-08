@@ -29,9 +29,8 @@
         "hogan.js"   : "3.0.2",
         "cheerio"    : "0.12.3"
     },
-    "main": "./app",
     "engines": {
-        "node": "0.10.x",
-        "npm": "1.2.x"
-    }
+        "node": ">=0.12.6"
+    },
+    "main": "./app"
 }
