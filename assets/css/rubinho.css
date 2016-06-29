@@ -1,0 +1,49 @@
+
+* { padding: 0; margin: 0; outline: 0; }
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px; line-height: 16px; color: #333;
+  background: #f2f2f2;
+}
+ul { list-style: none; }
+a { color: #0252aa; text-decoration: none; cursor: pointer; }
+a:hover { text-decoration: underline; }
+
+/*svg*/
+html, body, svg, #graph { width: 100%; height: 100%; overflow: hidden; }
+circle { cursor: pointer; }
+text { cursor: default; display: none; }
+
+/*sidebar*/
+.sidebar {
+  width: 300px; position: fixed; top: 0; right: 0; z-index: 1;
+}
+
+.graph-info { text-align: right; padding: 5px 15px 0px 3px; margin-bottom: 25px; }
+.graph-info label { cursor: pointer; }
+.graph-info input { position: relative; top: 2px; cursor: pointer; margin-right: 5px; }
+
+/*gem info*/
+.gem { padding: 0 5px; }
+.gem ul li { padding-bottom: 5px; }
+.gem code {
+  display: block; border: 1px solid #ccc; border-radius: 5px;
+  padding: 10px; margin: 0 7px 10px 0;
+}
+.gem .header h2 { padding-bottom: 15px; }
+.gem .info { padding-bottom: 15px; }
+
+/*owners avatars*/
+.gem__owners { margin: 10px 0 10px 1px; }
+.gem__owners a { display: inline-block; margin: 0 9px 0 0; }
+.gem__owners img { display: block; border-radius: 5px; }
+
+/*footer*/
+footer {
+  position: fixed; bottom: 10px; left: 20px; z-index: 100; width: 100%;
+  font-size: 12px; line-height: 15px; text-align: center;
+}
+footer a {
+  color: #777;
+}

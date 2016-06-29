@@ -1,1 +1,0 @@
-![doh winning!](http://i.imgur.com/fubuqwg.gif)

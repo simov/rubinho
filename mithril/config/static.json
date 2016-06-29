@@ -1,0 +1,38 @@
+{
+  "development": {
+    "css": [
+      "/components/selectize/dist/css/selectize.bootstrap3.css",
+
+      "/css/rubinho.css"
+    ],
+    "js": [
+      "/components/mithril/mithril.min.js",
+      "/components/jquery/dist/jquery.min.js",
+      "/components/selectize/dist/js/standalone/selectize.min.js",
+
+      "vendor/vivagraph.js",
+
+      "search.js",
+      "graph-info.js",
+      "gem.js",
+      "graph.js",
+      "footer.js",
+
+      "index.js"
+    ]
+  },
+  "production": {
+    "css": [
+      "https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/css/selectize.bootstrap3.min.css",
+
+      "/css/rubinho.css"
+    ],
+    "js": [
+      "https://cdnjs.cloudflare.com/ajax/libs/mithril/0.2.5/mithril.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/js/standalone/selectize.min.js",
+
+      "/build/rubinho.min.js"
+    ]
+  }
+}

@@ -1,36 +1,40 @@
 {
-    "name": "rubinho",
-    "version": "0.0.2",
-    "private": true,
-    "description": "RubyGems visualization tool",
-    "keywords": [
-        "ruby",
-        "gems",
-        "visualization",
-        "graph",
-        "vivagraph"
-    ],
-    "license"   : "MIT",
-    "homepage"  : "https://github.com/simov/rubinho",
-    "author": {
-        "name"  : "simo",
-        "email" : "simeonvelichkov@gmail.com"
-    },
-    "repository": {
-        "type"  : "git",
-        "url"   : "git://github.com/simov/rubinho.git"
-    },
-    "dependencies": {
-        "ws"         : "0.4.31",
-        "async"      : "0.9.0",
-        "purest"     : "1.0.0",
-        "express"    : "3.4.4",
-        "consolidate": "0.9.1",
-        "hogan.js"   : "3.0.2",
-        "cheerio"    : "0.12.3"
-    },
-    "engines": {
-        "node": ">=0.12.6"
-    },
-    "main": "./app"
+  "name": "rubinho",
+  "version": "0.0.2",
+  "description": "RubyGems Visualization Tool",
+  "private": true,
+  "keywords": [
+    "ruby",
+    "gems",
+    "visualization",
+    "graph",
+    "vivagraph"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/simov/rubinho",
+  "author": "Simeon Velichkov <simeonvelichkov@gmail.com> (http://simov.github.io)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simov/rubinho.git"
+  },
+  "main": "./server",
+  "dependencies": {
+    "async": "0.9.0",
+    "body-parser": "^1.15.2",
+    "cheerio": "0.12.3",
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "hogan.js": "3.0.2",
+    "morgan": "^1.7.0",
+    "purest": "^2.0.1",
+    "serve-favicon": "^2.3.0",
+    "serve-static": "^1.11.1",
+    "ws": "0.4.31"
+  },
+  "engines": {
+    "node": ">=4.4.7"
+  },
+  "devDependencies": {
+    "bower": "^1.7.9"
+  }
 }
