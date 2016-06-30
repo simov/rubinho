@@ -67,16 +67,16 @@ var Gem = {
 
         m('li', [
           m('strong', 'Resources: '),
-          (gem.gem_uri || null) && [
-            m('a[target="_blank"]', {href: gem.gem_uri}, m('em', 'gem')),
-            ' | '
-          ],
+          (gem.gem_uri || null) &&
+          m('a[target="_blank"]', {href: gem.gem_uri}, m('em', 'gem')),
           (gem.source_code_uri || null) && [
-            m('a[target="_blank"]', {href: gem.source_code_uri}, m('em', 'source')),
-            ' | '
+            ' | ',
+            m('a[target="_blank"]', {href: gem.source_code_uri}, m('em', 'source'))
           ],
-          (gem.documentation_uri || null) &&
-          m('a[target="_blank"]', {href: gem.documentation_uri}, m('em', 'docs'))
+          (gem.documentation_uri || null) && [
+            ' | ',
+            m('a[target="_blank"]', {href: gem.documentation_uri}, m('em', 'docs'))
+          ]
         ])
       ])
     ]))
