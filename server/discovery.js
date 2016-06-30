@@ -1,4 +1,5 @@
 
+var https = require('https')
 var async = require('async')
 var rb = require('./rubygems')
 
@@ -6,8 +7,10 @@ var rb = require('./rubygems')
 exports.run = (root, step, done) => {
   var gems = {}
   var error = false
+  var agent = new https.Agent({keepAlive: true, maxSockets: 3})
 
   getGem({name: root}, (err) => {
+    agent.destroy()
     if (err) {
       done(err)
       return
@@ -30,7 +33,7 @@ exports.run = (root, step, done) => {
     gems[gem.name] = true
 
     // get
-    rb.get('gems/' + gem.name, (err, res) => {
+    rb.get('gems/' + gem.name, {agent}, (err, res) => {
       if (err) {
         done(err)
         return
