@@ -1,5 +1,5 @@
 
-var CustomGraph = () => {
+var CustomGraph = (args) => {
   var graph = Viva.Graph.graph()
   var graphics = Viva.Graph.View.svgGraphics()
 
@@ -65,7 +65,10 @@ var CustomGraph = () => {
           // SVG group of elements: http://www.w3.org/TR/SVG/struct.html
           var group = Viva.Graph.svg('g')
 
-          var text = Viva.Graph.svg('text').attr('y', '-8px').text(node.id)
+          var text = Viva.Graph.svg('text')
+            .attr('y', '-10px')
+            .attr('style', 'display: ' + (args.showNames ? 'block' : 'none'))
+            .text(node.id)
           group.append(text)
 
           var elem
@@ -87,7 +90,6 @@ var CustomGraph = () => {
               .attr('type', 'node')
               .attr('active', false)
           }
-          elem.append('title').text(node.id)
           elem.addEventListener('click', events.click)
           elem.addEventListener('mouseover', events.over)
           elem.addEventListener('mouseout', events.out)

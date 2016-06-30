@@ -1,7 +1,7 @@
 
 var Graph = {
   controller: function () {
-    var graph = CustomGraph()
+    var graph = CustomGraph(JSON.parse(localStorage.getItem('rubinho')) || {})
 
     function addNode (gem) {
       m.startComputation()
