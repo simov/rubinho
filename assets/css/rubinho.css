@@ -13,17 +13,19 @@ a:hover { text-decoration: underline; }
 /*svg*/
 html, body, svg, #graph { width: 100%; height: 100%; overflow: hidden; }
 circle { cursor: pointer; }
-text { cursor: default; display: none; }
+text { cursor: default; }
 
 /*sidebar*/
 .sidebar {
   width: 300px; position: fixed; top: 0; right: 0; z-index: 1;
 }
 
-.graph-info { text-align: right; padding: 5px 15px 0px 3px; margin-bottom: 25px; }
+.graph-info { text-align: right; padding-right: 15px; margin-bottom: 25px; }
 .graph-info a { margin-right: 5px; }
 .graph-info label { cursor: pointer; }
-.graph-info input { position: relative; top: 2px; cursor: pointer; margin-right: 5px; }
+.graph-info input {
+  position: relative; top: 2px; cursor: pointer; margin-right: 5px;
+}
 
 /*gem info*/
 .gem { padding: 0 5px; }
@@ -42,9 +44,7 @@ text { cursor: default; display: none; }
 
 /*footer*/
 footer {
-  position: fixed; bottom: 10px; left: 20px; z-index: 100; width: 100%;
+  position: fixed; bottom: 10px; left: 20px; z-index: 1; width: 100%;
   font-size: 12px; line-height: 15px; text-align: center;
 }
-footer a {
-  color: #777;
-}
+footer a { color: #777; }
