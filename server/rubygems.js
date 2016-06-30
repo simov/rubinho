@@ -2,48 +2,58 @@
 var https = require('https')
 
 
-function toQueryString (params) {
-  return Object.keys(params)
-    .map((name) => (name + '=' + params[name]))
+function toQueryString (qs) {
+  return Object.keys(qs)
+    .map((name) => (name + '=' + qs[name]))
     .join('&')
 }
 
-function getPath (api, params) {
+function getPath (api, qs) {
   var path = '/api/v1/' + api + '.json'
-  if (params) {
-    path += '?' + toQueryString(params)
+  if (qs) {
+    path += '?' + toQueryString(qs)
   }
   return path
 }
 
-exports.get = (api, params, done) => {
-  if (typeof params === 'function') {
-    done = params
-    params = {}
+exports.get = (api, options, done) => {
+  if (typeof options === 'function') {
+    done = options
+    options = {}
   }
-  https.request({
+
+  var opts = {
     hostname: 'rubygems.org',
     port: 443,
-    path: getPath(api, params),
-    method: 'GET'
-  }, (res) => {
+    method: 'GET',
+    path: getPath(api, options.qs)
+  }
+  if (options.agent) {
+    opts.agent = options.agent
+  }
+
+  var req = https.request(opts)
+
+  req.on('response', (res) => {
     var buff = ''
-    res.on('data', (chunk) => {
-      buff += chunk
-    })
-    .on('end', () => {
-      res.raw = buff.toString()
-      try {
-        res.body = JSON.parse(res.raw)
-      }
-      catch (e) {
-        var err = new Error(res.raw)
-      }
-      done(err, res)
-    })
+    res
+      .on('data', (chunk) => {
+        buff += chunk
+      })
+      .on('end', () => {
+        res.raw = buff.toString()
+        try {
+          res.body = JSON.parse(res.raw)
+        }
+        catch (e) {
+          var err = new Error(res.raw)
+        }
+        done(err, res)
+      })
   })
-  .on('error', done)
-  .end()
+
+  req.on('error', done)
+  req.end()
 }
 
 exports.scrape = (api, done) => {
