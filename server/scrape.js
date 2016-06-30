@@ -9,6 +9,7 @@ exports.owners = (path, done) => {
       done(err)
       return
     }
+
     var $ = cheerio.load(res.raw)
 
     $('.gem__owners a').each(function (index) {

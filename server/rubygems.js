@@ -37,9 +37,7 @@ exports.get = (api, options, done) => {
   req.on('response', (res) => {
     var buff = ''
     res
-      .on('data', (chunk) => {
-        buff += chunk
-      })
+      .on('data', (chunk) => (buff += chunk))
       .on('end', () => {
         res.raw = buff.toString()
         try {
@@ -57,21 +55,25 @@ exports.get = (api, options, done) => {
 }
 
 exports.scrape = (api, done) => {
-  https.request({
+  var opts = {
     hostname: 'rubygems.org',
     port: 443,
     path: '/' + api,
     method: 'GET'
-  }, (res) => {
+  }
+
+  var req = https.request(opts)
+
+  req.on('response', (res) => {
     var buff = ''
-    res.on('data', (chunk) => {
-      buff += chunk
-    })
-    .on('end', () => {
-      res.raw = buff.toString()
-      done(null, res)
-    })
+    res
+      .on('data', (chunk) => (buff += chunk))
+      .on('end', () => {
+        res.raw = buff.toString()
+        done(null, res)
+      })
   })
-  .on('error', done)
-  .end()
+
+  req.on('error', done)
+  req.end()
 }
