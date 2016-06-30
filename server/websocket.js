@@ -35,7 +35,7 @@ wss.on('connection', (ws) => {
       )
     }
     else if (req.message === 'owners') {
-      sc.owners('gems/'+req.gem, (err, owners) => {
+      sc.owners('gems/' + req.gem, (err, owners) => {
         if (!clients[req.id]) {
           return true
         }
