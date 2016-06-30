@@ -21,6 +21,7 @@ text { cursor: default; display: none; }
 }
 
 .graph-info { text-align: right; padding: 5px 15px 0px 3px; margin-bottom: 25px; }
+.graph-info a { margin-right: 5px; }
 .graph-info label { cursor: pointer; }
 .graph-info input { position: relative; top: 2px; cursor: pointer; margin-right: 5px; }
 

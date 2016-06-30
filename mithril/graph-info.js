@@ -19,6 +19,8 @@ var GraphInfo = {
     if (app.graph) {
       return (
       m('p.graph-info', [
+        ((app.gem && app.gem.name !== m.route.param('gem')) || null) &&
+        m('a', {href: '/gem/' + app.gem.name, config: m.route}, 'show graph'),
         m('label',
           m('input[type="checkbox"]', {
             onchange: ctrl.toggleNames,
@@ -26,8 +28,8 @@ var GraphInfo = {
           }),
           'names'
         ),
-        ' | nodes ', m('strong', app.graph.getNodes()),
-        ' | links ', m('strong', app.graph.getLinks())
+        ' | nodes ', m('strong', app.graph.getNodes() || 0),
+        ' | links ', m('strong', app.graph.getLinks() || 0)
       ]))
     }
     else {
