@@ -90,6 +90,7 @@ var CustomGraph = (args) => {
               .attr('type', 'node')
               .attr('active', false)
           }
+          elem.append('title').text(node.id)
           elem.addEventListener('click', events.click)
           elem.addEventListener('mouseover', events.over)
           elem.addEventListener('mouseout', events.out)
