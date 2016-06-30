@@ -16,7 +16,7 @@ wss.on('connection', (ws) => {
     if (req.message === 'ping') {
       ws.id = req.id
       clients[ws.id] = ws
-      clients[ws.id].send(JSON.stringify({message: 'pong'}))
+      clients[ws.id].send(JSON.stringify({message: 'pong', id: ws.id}))
     }
     else if (req.message === 'gems') {
       ds.run(req.gem,
