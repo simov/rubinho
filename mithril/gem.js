@@ -63,9 +63,8 @@ var Gem = {
         m('li', m('strong', 'Downloads: '), m('em', gem.downloads)),
         m('li', m('strong', 'Authors: '), m('em', gem.authors)),
         m('li', m('strong', 'Version: '), m('em', gem.version)),
-        m('li', m('strong', 'Licenses: '),
-          (gem.licenses || []).map((license) => m('em', license + ' '))
-        ),
+        m('li', m('strong', 'Licenses: '), m('em', gem.licenses.join(', '))),
+
         m('li', [
           m('strong', 'Resources: '),
           (gem.gem_uri || null) && [
