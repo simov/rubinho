@@ -9,6 +9,7 @@ var CustomGraph = (args) => {
     node: '#06AED5',
     active: '#DD1C1A',
     hover: '#F0C808',
+    link: '#808080',
     from: '#DD1C1A',
     to: '#06AED5'
   }
@@ -17,7 +18,7 @@ var CustomGraph = (args) => {
     // on hover over node
     over: (e) => {
       e.target.attr('fill', colors.hover)
-      // highlightRelatedLinks(node.id, true)
+      highlightRelatedLinks(e.target.attr('gem'))
     },
     // on hover out of node
     out: (e) => {
@@ -32,7 +33,8 @@ var CustomGraph = (args) => {
         color = colors.node
       }
       e.target.attr('fill', color)
-      // highlightRelatedLinks(node.id, false)
+      highlightRelatedLinks(
+        document.querySelector('circle[active=true]').attr('gem'))
     },
     // on click node
     click: (e) => {
@@ -43,17 +45,12 @@ var CustomGraph = (args) => {
         node.attr('fill', color).attr('active', false)
       })
 
-      // reset links
-      document.querySelectorAll('path').forEach((link) => {
-        link.attr('stroke', 'gray')
-      })
-
       // set active node
       e.target
         .attr('fill', colors.active)
         .attr('active', true)
 
-      // highlightRelatedLinks(node.id, true)
+      highlightRelatedLinks(e.target.attr('gem'))
     },
   }
 
@@ -114,7 +111,7 @@ var CustomGraph = (args) => {
           .attr('markerWidth', '10')
           .attr('markerHeight', '5')
           .attr('orient', 'auto')
-          .attr('stroke', 'gray')
+          .attr('stroke', colors.link)
           .attr('fill', '#333')
       }
 
@@ -129,7 +126,7 @@ var CustomGraph = (args) => {
       graphics
         .link((link) =>
           Viva.Graph.svg('path')
-            .attr('stroke', 'gray')
+            .attr('stroke', colors.link)
             .attr('marker-end', 'url(#Triangle)')
         )
         .placeLink((linkUI, fromPos, toPos) => {
@@ -163,14 +160,19 @@ var CustomGraph = (args) => {
     }
   }
 
-  function highlightRelatedLinks (nodeId, isOn) {
-    graph.forEachLinkedNode(nodeId, (node, link) => {
+  function highlightRelatedLinks (id) {
+    // reset links
+    document.querySelectorAll('path').forEach((link) => {
+      link.attr('stroke', colors.link)
+    })
+
+    graph.forEachLinkedNode(id, (node, link) => {
       if (link && link.ui) {
-        if (link.fromId === nodeId) {
-          link.ui.attr('stroke', isOn ? colors.from : 'gray')
+        if (link.fromId === id) {
+          link.ui.attr('stroke', colors.from)
         }
-        else if (link.toId === nodeId) {
-          link.ui.attr('stroke', isOn ? colors.to : 'gray')
+        else if (link.toId === id) {
+          link.ui.attr('stroke', colors.to)
         }
       }
     })
