@@ -25,7 +25,7 @@ var Gem = {
       if (res.message === 'pong') {
         console.log('pong')
         ws.send(JSON.stringify({message: 'gems', gem: gem, id: ws.uuid}))
-        app.graph.init()
+        app.graph.run()
       }
       else if (res.message === 'node') {
         console.log('node %O', res.gem)
@@ -50,7 +50,7 @@ var Gem = {
       return m('div')
     }
 
-    return true &&
+    return (
     m('.gem', [
       m('.header', [
         m('h2', m('a[target="_blank"]', {href: gem.project_uri}, gem.name)),
@@ -80,6 +80,6 @@ var Gem = {
           m('a[target="_blank"]', {href: gem.documentation_uri}, m('em', 'docs'))
         ])
       ])
-    ])
+    ]))
   }
 }

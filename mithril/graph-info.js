@@ -21,8 +21,8 @@ var GraphInfo = {
           m('input[type="checkbox"]', {onchange: ctrl.toggleNames}),
           'names'
         ),
-        ' | nodes ', m('strong', app.graph.instance.getNodesCount()),
-        ' | links ', m('strong', app.graph.instance.getLinksCount())
+        ' | nodes ', m('strong', app.graph.getNodes()),
+        ' | links ', m('strong', app.graph.getLinks())
       ])
     }
     else {

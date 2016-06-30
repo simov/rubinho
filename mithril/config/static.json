@@ -11,6 +11,7 @@
       "/components/selectize/dist/js/standalone/selectize.min.js",
 
       "vendor/vivagraph.js",
+      "js/graph.js",
 
       "search.js",
       "graph-info.js",
