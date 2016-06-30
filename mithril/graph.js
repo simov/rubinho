@@ -61,7 +61,8 @@ var Graph = {
       addLinks: addLinks,
       addOwners: addOwners,
       getNodes: () => graph.getNodesCount(),
-      getLinks: () => graph.getLinksCount()
+      getLinks: () => graph.getLinksCount(),
+      clear: () => graph.clear()
     }
 
     return {

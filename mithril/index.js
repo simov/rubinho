@@ -8,6 +8,13 @@ var app = {
 window.addEventListener('DOMContentLoaded', (e) => {
   m.route(document.querySelector('body'), '/', {
     '/': {
+      controller: function () {
+        if (app.graph) {
+          app.graph.clear()
+          app.graph = null
+        }
+        app.gem = null
+      },
       view: () =>
         m('.sidebar', [
           m(Search),
@@ -15,6 +22,13 @@ window.addEventListener('DOMContentLoaded', (e) => {
         ])
     },
     '/gem/:gem': {
+      controller: function () {
+        if (app.graph) {
+          app.graph.clear()
+          app.graph = null
+        }
+        app.gem = null
+      },
       view: () => [
         m('.sidebar', [
           m(Search, {}),
