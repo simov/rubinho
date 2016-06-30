@@ -6,7 +6,6 @@ var fs = require('fs')
 var path = require('path')
 
 var express = require('express')
-var bodyParser = require('body-parser')
 var favicon = require('serve-favicon')
 var serveStatic = require('serve-static')
 var compression = require('compression')
@@ -28,8 +27,6 @@ app.use(favicon(path.join(__dirname, '../assets/images/favicon.ico')))
 app.use(serveStatic(path.join(__dirname, '../assets'), {maxAge: '1 year'}))
 app.use(serveStatic(path.join(__dirname, '../mithril'), {maxAge: '1 year'}))
 
-app.use(bodyParser.urlencoded({extended: true}))
-
 
 app.get('/search/:query', (req, res) => {
   // https://rubygems.org/api/v1/search.json?query=c
@@ -50,6 +47,4 @@ app.get('/', (req, res) => {
 })
 
 
-app.listen(port, () => {
-  console.log('Oh hi', port, '!')
-})
+app.listen(port, () => console.log('Oh hi', port, '!'))
