@@ -43,7 +43,7 @@ var Gem = {
 
     ws.onerror = (err) => console.log(err)
   },
-  view: (ctrl, args) => {
+  view: () => {
     var gem = app.gem
 
     if (!gem) {
