@@ -1,6 +1,5 @@
 
 var ds = require('./discovery')
-var rb = require('./rubygems')
 var sc = require('./scrape')
 
 
@@ -30,7 +29,9 @@ wss.on('connection', (ws) => {
           if (!clients[req.id]) {
             return true
           }
-          clients[req.id].send(JSON.stringify({message: 'done', gems: gems}))
+          clients[req.id].send(JSON.stringify({
+            message: 'done', gems: gems, error: err && err.message
+          }))
         }
       )
     }
@@ -48,5 +49,3 @@ wss.on('connection', (ws) => {
 
   ws.on('close', () => delete clients[ws.id])
 })
-
-exports.clients = clients
