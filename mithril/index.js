@@ -15,11 +15,11 @@ window.addEventListener('DOMContentLoaded', (e) => {
         }
         app.gem = null
       },
-      view: () =>
-        m('.sidebar', [
-          m(Search),
-          m(Footer)
-        ])
+      view: () => [
+        m('.sidebar', m(Search)),
+        m('footer', m('p',
+          m('a[href="http://simov.github.io"][target="_blank"]', 'simov')))
+      ]
     },
     '/gem/:gem': {
       controller: function () {
@@ -35,7 +35,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
           m(GraphInfo, {}),
           m(Gem, {})
         ]),
-        m(Footer),
+        m('footer', m('p',
+          m('a[href="http://simov.github.io"][target="_blank"]', 'simov'))),
         m(Graph)
       ]
     }
