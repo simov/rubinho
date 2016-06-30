@@ -16,14 +16,14 @@ var Gem = {
     ws.uuid = guid()
 
     ws.onopen = () => {
-      console.log('ping')
+      console.log('ping %s', ws.uuid)
       ws.send(JSON.stringify({message: 'ping', id: ws.uuid}))
     }
 
     ws.onmessage = (e) => {
       var res = JSON.parse(e.data)
       if (res.message === 'pong') {
-        console.log('pong')
+        console.log('pong %s', res.id)
         ws.send(JSON.stringify({message: 'gems', gem: gem, id: ws.uuid}))
         app.graph.run()
       }
