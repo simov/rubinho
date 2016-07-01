@@ -23,7 +23,9 @@ window.addEventListener('DOMContentLoaded', (e) => {
         app.cleanup()
       },
       view: () => [
-        m('.sidebar', m(Selectize, {})),
+        m('.sidebar', [
+          m(Search)
+        ]),
         m('footer', m('p',
           m('a[href="http://simov.github.io"][target="_blank"]', 'simov')))
       ]
@@ -34,9 +36,9 @@ window.addEventListener('DOMContentLoaded', (e) => {
       },
       view: () => [
         m('.sidebar', [
-          m(Selectize, {value: m.route.param('gem')}),
-          m(GraphInfo, {}),
-          m(Gem, {})
+          m(Search),
+          m(GraphInfo),
+          m(Gem)
         ]),
         m('footer', m('p',
           m('a[href="http://simov.github.io"][target="_blank"]', 'simov'))),

@@ -1,5 +1,5 @@
 
-var Selectize = {
+var Search = {
   controller: function (args) {
     return {
       config: (elem, init, ctx) => {

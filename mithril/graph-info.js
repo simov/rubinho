@@ -15,7 +15,7 @@ var GraphInfo = {
     }
     return ctrl
   },
-  view: (ctrl, args) => {
+  view: (ctrl) => {
     if (app.graph) {
       return (
       m('p.graph-info', [
