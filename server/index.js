@@ -28,15 +28,15 @@ app.use(serveStatic(path.join(__dirname, '../assets'), {maxAge: '1 year'}))
 app.use(serveStatic(path.join(__dirname, '../mithril'), {maxAge: '1 year'}))
 
 
-app.get('/search/:query', (req, res) => {
-  // https://rubygems.org/api/v1/search.json?query=c
-  rb.get('search', {query: req.params.query}, (err, reply) => {
-    var result = reply.body.map((item) => ({
-      value: item.name,
-      tokens: [item.name]
-    }))
+app.get('/search', (req, res) => {
+  rb.get('search', {qs: req.query}, (err, _res, body) => {
+    if (err) {
+      res.writeHead(500, {'Content-Type': 'application/json'})
+      res.end(JSON.stringify({error: 'Seach error'}))
+      return
+    }
     res.writeHead(200, {'Content-Type': 'application/json'})
-    res.end(JSON.stringify(result))
+    res.end(JSON.stringify(body.map((gem) => ({value: gem.name, text: gem.name}))))
   })
 })
 

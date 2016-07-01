@@ -13,7 +13,7 @@
 
       "js/graph.js",
 
-      "search.js",
+      "selectize.js",
       "graph-info.js",
       "gem.js",
       "graph.js",

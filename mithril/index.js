@@ -2,7 +2,8 @@
 var app = {
   graph: null,
   gem: null,
-  ws: null
+  ws: null,
+  selectized: false
 }
 
 window.addEventListener('DOMContentLoaded', (e) => {
@@ -16,7 +17,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
         app.gem = null
       },
       view: () => [
-        m('.sidebar', m(Search)),
+        m('.sidebar', m(Selectize, {})),
         m('footer', m('p',
           m('a[href="http://simov.github.io"][target="_blank"]', 'simov')))
       ]
@@ -31,7 +32,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
       },
       view: () => [
         m('.sidebar', [
-          m(Search, {}),
+          m(Selectize, {value: m.route.param('gem')}),
           m(GraphInfo, {}),
           m(Gem, {})
         ]),
