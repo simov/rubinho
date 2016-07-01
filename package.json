@@ -40,6 +40,7 @@
   },
   "scripts": {
     "start": "NODE_ENV=production node server/",
+    "bower": "bower install --config.directory=assets/components",
     "babel": "babel --presets es2015 --no-comments --compact --minified -o assets/build/rubinho.js mithril/*.js && echo Babel Complete",
     "minify": "uglifyjs assets/build/rubinho.js --compress --mangle --screw-ie8 --output assets/build/rubinho.min.js && echo Minification Complete",
     "build": "mkdir -p assets/build && cp assets/components/vivagraph/dist/vivagraph.min.js assets/build && npm run babel && npm run minify && echo Build Complete"
