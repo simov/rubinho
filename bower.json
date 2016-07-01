@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "vivagraph": "0.8.1",
     "mithril": "0.2.5",
     "jquery": "2.2.3",
     "selectize": "0.12.1"
