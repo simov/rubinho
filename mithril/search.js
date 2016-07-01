@@ -34,6 +34,7 @@ var Search = {
           var $select = $(elem).selectize({
             create: false,
             options: [{value: m.route.param('gem'), text: m.route.param('gem')}],
+            loadThrottle: 500,
             load: function (query, done) {
               this.clearOptions()
               status.stop()
