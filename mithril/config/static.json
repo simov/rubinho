@@ -6,11 +6,10 @@
       "/css/rubinho.css"
     ],
     "js": [
-      "/components/mithril/mithril.min.js",
-      "/components/jquery/dist/jquery.min.js",
-      "/components/selectize/dist/js/standalone/selectize.min.js",
-
-      "vendor/vivagraph-0.8.1.js",
+      "/components/vivagraph/dist/vivagraph.js",
+      "/components/mithril/mithril.js",
+      "/components/jquery/dist/jquery.js",
+      "/components/selectize/dist/js/standalone/selectize.js",
 
       "js/graph.js",
 
@@ -33,8 +32,7 @@
       "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js",
       "https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/js/standalone/selectize.min.js",
 
-      "vendor/vivagraph-0.8.1.min.js",
-
+      "/build/vivagraph.min.js",
       "/build/rubinho.min.js"
     ]
   }
