@@ -33,16 +33,16 @@ exports.run = (root, step, done) => {
     gems[gem.name] = true
 
     // get
-    rb.get('gems/' + gem.name, {agent}, (err, res) => {
+    rb.get('gems/' + gem.name, {agent}, (err, res, body) => {
       if (err) {
         done(err)
         return
       }
 
-      gems[gem.name] = res.body
+      gems[gem.name] = body
 
       if (step) {
-        error = step(res.body)
+        error = step(body)
       }
       // client has disconnected
       if (error) {
@@ -51,8 +51,8 @@ exports.run = (root, step, done) => {
       }
 
       // deps
-      if (res.body.dependencies.runtime.length) {
-        deps(res.body.dependencies.runtime, done)
+      if (body.dependencies.runtime.length) {
+        deps(body.dependencies.runtime, done)
       }
       // bottom
       else {

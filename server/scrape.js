@@ -4,13 +4,13 @@ var rb = require('./rubygems')
 
 
 exports.owners = (path, done) => {
-  rb.scrape(path, (err, res) => {
+  rb.scrape(path, (err, res, body) => {
     if (err) {
       done(err)
       return
     }
 
-    var $ = cheerio.load(res.raw)
+    var $ = cheerio.load(body)
 
     $('.gem__owners a').each(function (index) {
       $(this).attr('target', '_blank')

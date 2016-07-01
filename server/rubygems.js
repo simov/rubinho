@@ -39,14 +39,14 @@ exports.get = (api, options, done) => {
     res
       .on('data', (chunk) => (buff += chunk))
       .on('end', () => {
-        res.raw = buff.toString()
+        var raw = buff.toString()
         try {
-          res.body = JSON.parse(res.raw)
+          var body = JSON.parse(raw)
         }
         catch (e) {
-          var err = new Error(res.raw)
+          var err = new Error(raw)
         }
-        done(err, res)
+        done(err, res, body)
       })
   })
 
@@ -69,8 +69,8 @@ exports.scrape = (api, done) => {
     res
       .on('data', (chunk) => (buff += chunk))
       .on('end', () => {
-        res.raw = buff.toString()
-        done(null, res)
+        var body = buff.toString()
+        done(null, res, body)
       })
   })
 
