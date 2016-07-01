@@ -36,7 +36,8 @@
     "uglify-js": "^2.6.4"
   },
   "engines": {
-    "node": ">=4.4.7"
+    "node": "^6.0.0",
+    "npm": "^2.15.4"
   },
   "scripts": {
     "start": "NODE_ENV=production node server/",
