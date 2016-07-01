@@ -20,7 +20,11 @@ text { cursor: default; }
   width: 300px; position: fixed; top: 0; right: 0; z-index: 1;
 }
 
-.search { padding: 10px 10px 7px 0; }
+.search { position: relative; z-index: 1; padding: 10px 10px 7px 0; }
+.status {
+  font-size: 10px; line-height: 13px; color: #DD1C1A;
+  position: absolute; top: 20px; left: 195px; z-index: 2;
+}
 
 .graph-info { text-align: right; padding-right: 15px; margin-bottom: 25px; }
 .graph-info a { margin-right: 5px; }
