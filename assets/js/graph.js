@@ -128,6 +128,7 @@ var CustomGraph = (args) => {
           Viva.Graph.svg('path')
             .attr('stroke', colors.link)
             .attr('marker-end', 'url(#Triangle)')
+            .attr('id', link.id)
         )
         .placeLink((linkUI, fromPos, toPos) => {
           var toNodeSize = 14
@@ -167,14 +168,14 @@ var CustomGraph = (args) => {
     })
 
     graph.forEachLinkedNode(id, (node, link) => {
-      if (link && link.ui) {
-        if (link.fromId === id) {
-          link.ui.attr('stroke', colors.from)
-        }
-        else if (link.toId === id) {
-          link.ui.attr('stroke', colors.to)
-        }
+      var color
+      if (link.fromId === id) {
+        color = colors.from
       }
+      else if (link.toId === id) {
+        color = colors.to
+      }
+      document.querySelector('[id="' + link.id + '"]').attr('stroke', color)
     })
   }
 
