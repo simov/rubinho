@@ -63,6 +63,7 @@ var Gem = {
         m('li', m('strong', 'Downloads: '), m('em', gem.downloads)),
         m('li', m('strong', 'Authors: '), m('em', gem.authors)),
         m('li', m('strong', 'Version: '), m('em', gem.version)),
+        (gem.licenses || null) &&
         m('li', m('strong', 'Licenses: '), m('em', gem.licenses.join(', '))),
 
         m('li', [
