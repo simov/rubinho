@@ -11,11 +11,7 @@ exports.run = (root, step, done) => {
 
   getGem({name: root}, (err) => {
     agent.destroy()
-    if (err) {
-      done(err)
-      return
-    }
-    done(null, gems)
+    done(err, gems)
   })
 
   function getGem (gem, done) {
@@ -52,16 +48,12 @@ exports.run = (root, step, done) => {
 
       // deps
       if (body.dependencies.runtime.length) {
-        deps(body.dependencies.runtime, done)
+        async.each(body.dependencies.runtime, getGem, done)
       }
       // bottom
       else {
         done()
       }
     })
-  }
-
-  function deps (dependencies, done) {
-    async.each(dependencies, getGem, done)
   }
 }
