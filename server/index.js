@@ -16,7 +16,7 @@ var index = fs.readFileSync(path.resolve(__dirname, '../mithril/base.html'), 'ut
 
 var static = require('../mithril/config/static')[process.env.NODE_ENV || 'development']
 var rb = require('./rubygems')
-require('./websocket')
+var ws = require('./websocket')
 
 var app = express()
 
@@ -47,4 +47,5 @@ app.get('/', (req, res) => {
 })
 
 
-app.listen(port, () => console.log('Oh hi', port, '!'))
+var server = app.listen(port, () => console.log('Oh hi', port, '!'))
+ws(server)

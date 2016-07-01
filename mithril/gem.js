@@ -12,7 +12,7 @@ var Gem = {
     var gem = m.route.param('gem')
 
     // connect
-    var ws = app.ws = new WebSocket('ws://localhost:3001')
+    var ws = app.ws = new WebSocket(location.origin.replace(/^http/, 'ws'))
     ws.uuid = guid()
 
     ws.onopen = () => {
