@@ -30,12 +30,18 @@
     "ws": "0.4.31"
   },
   "devDependencies": {
-    "bower": "^1.7.9"
+    "babel-cli": "^6.10.1",
+    "babel-preset-es2015": "^6.9.0",
+    "bower": "^1.7.9",
+    "uglify-js": "^2.6.4"
   },
   "engines": {
     "node": ">=4.4.7"
   },
   "scripts": {
-    "start": "NODE_ENV=production node server/"
+    "start": "NODE_ENV=production node server/",
+    "babel": "babel --presets es2015 --no-comments --compact --minified -o assets/build/rubinho.js mithril/*.js && echo Babel Complete",
+    "minify": "uglifyjs assets/build/rubinho.js --compress --mangle --screw-ie8 --output assets/build/rubinho.min.js && echo Minification Complete",
+    "build": "mkdir -p assets/build && cp assets/components/vivagraph/dist/vivagraph.min.js assets/build && npm run babel && npm run minify && echo Build Complete"
   }
 }
