@@ -10,7 +10,8 @@
       "/components/jquery/dist/jquery.min.js",
       "/components/selectize/dist/js/standalone/selectize.min.js",
 
-      "vendor/vivagraph.js",
+      "vendor/vivagraph-0.8.1.js",
+
       "js/graph.js",
 
       "search.js",
@@ -31,6 +32,8 @@
       "https://cdnjs.cloudflare.com/ajax/libs/mithril/0.2.5/mithril.min.js",
       "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js",
       "https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/js/standalone/selectize.min.js",
+
+      "vendor/vivagraph-0.8.1.min.js",
 
       "/build/rubinho.min.js"
     ]
