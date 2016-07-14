@@ -41,7 +41,7 @@ text { cursor: default; }
   padding: 10px; margin: 0 7px 10px 0;
 }
 .gem .header h2 { padding-bottom: 15px; }
-.gem .info { padding-bottom: 15px; }
+.gem .info { max-height: 100px; overflow: auto; margin-bottom: 15px; }
 
 /*owners avatars*/
 .gem__owners { margin: 10px 0 10px 1px; }

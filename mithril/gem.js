@@ -54,7 +54,7 @@ var Gem = {
     m('.gem', [
       m('.header', [
         m('h2', m('a[target="_blank"]', {href: gem.project_uri}, gem.name)),
-        m('p.info', gem.info),
+        m('.info', m('p', gem.info)),
         m('code', 'gem install ' + gem.name)
       ]),
       m('ul', [
